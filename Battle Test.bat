@@ -8,12 +8,17 @@ set enemyhp=100000
 echo Battle Test
 echo.
 echo What battle do you want to play?
-echo Tutorial (Coming in next update)
+echo Tutorial
 echo Main
 echo Custom
 set /p battle=
 if %battle% == Main goto mode
 if %battle% == Custom goto custom
+if %battle% == Tutorial goto starttutorial
+goto start
+:starttutorial
+start Tutorial.bat
+exit
 :custom
 cls
 cd Custom
@@ -70,6 +75,7 @@ echo You ran.
 pause
 goto start
 :item
+set /a hp=%hp%+100
 set item=ITEMTEST
 echo You used %Item%
 pause
