@@ -1,11 +1,24 @@
 @echo off
 title BattleTest
 :start
-set hp=%random%
-set maxhp=%hp%
-set enemyhp=%random%
+cls
+set hp=40000
+set maxhp=40000
+set enemyhp=100000
 echo Battle Test
-pause
+echo.
+echo Which mode do you want.
+echo Easy
+echo Normal
+set /p mode=
+if %mode% == Normal goto playerturn
+if %mode% == Easy goto seteasy
+goto start
+:seteasy
+set hp=70000
+set maxhp=70000
+set enemyhp=70000
+goto playerturn
 :playerturn
 if %hp% LEQ 0 goto gameover
 cls
