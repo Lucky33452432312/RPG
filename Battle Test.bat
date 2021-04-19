@@ -7,6 +7,27 @@ set maxhp=40000
 set enemyhp=100000
 echo Battle Test
 echo.
+echo What battle do you want to play?
+echo Tutorial (Coming in next update)
+echo Main
+echo Custom
+set /p battle=
+if %battle% == Main goto mode
+if %battle% == Custom goto custom
+:custom
+cls
+cd Custom
+dir
+echo Select the battle you want to play (.bat added).
+set /p custombattle=
+if exist %custombattle%.bat start %custombattle%.bat
+if not exist %custombattle%.bat goto customfailed
+:customfailed
+echo That battle doesn't exist.
+pause
+goto start
+:mode
+cls
 echo Which mode do you want to choose.
 echo Easy
 echo Normal
