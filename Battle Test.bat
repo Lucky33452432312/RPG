@@ -7,17 +7,24 @@ set maxhp=40000
 set enemyhp=100000
 echo Battle Test
 echo.
-echo Which mode do you want.
+echo Which mode do you want to choose.
 echo Easy
 echo Normal
+echo Hard
 set /p mode=
 if %mode% == Normal goto playerturn
 if %mode% == Easy goto seteasy
+if %mode% == Hard goto sethard
 goto start
 :seteasy
 set hp=70000
 set maxhp=70000
 set enemyhp=70000
+goto playerturn
+:sethard
+set hp=20000
+set maxhp=20000
+set enemyhp=130000
 goto playerturn
 :playerturn
 if %hp% LEQ 0 goto gameover
